@@ -79,7 +79,7 @@ def generator_node(state: ThumbnailState) -> dict:
     response = client.images.generate(
         model="gpt-image-1",
         prompt=state["prompt"],
-        size="1792x1024",
+        size="1536x1024",
         n=1
     )
 
