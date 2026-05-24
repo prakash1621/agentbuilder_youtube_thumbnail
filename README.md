@@ -120,14 +120,14 @@ Python 3.11+ required.
 Your `main.py` should support at least:
 
 ```bash
-python -m your_agent.main "Why Python is the best language"
-python -m your_agent.main "..." --stream      # show every node update live
+python -m agent.main "Why Python is the best language"
+python -m agent.main "..." --stream      # show every node update live
 ```
 
 And the diagram:
 
 ```bash
-python -m your_agent.make_diagram             # writes graph.png
+python -m agent.make_diagram             # writes graph.png
 ```
 
 ## Acceptance criteria (how this is graded)
