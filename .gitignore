@@ -12,7 +12,6 @@ venv/
 __pycache__/
 *.pyc
 .env
-outputs/
 # Secrets
 .env
 .env.local

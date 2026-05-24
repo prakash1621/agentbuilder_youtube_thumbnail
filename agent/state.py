@@ -23,4 +23,6 @@ class ThumbnailState(TypedDict):
     iteration: int
     target_rating: int
     max_iterations: int
+    history: Annotated[list[IterationRecord], operator.add]
+    best_rating: int
     best_image_path: str

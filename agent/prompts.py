@@ -13,13 +13,14 @@ Requirements:
 - Make it visually attractive
 - Use cinematic YouTube style
 - 16:9 aspect ratio
+- Make thumbnail highly clickable
 
 Output ONLY the image prompt.
 """
 
 
 CRITIC_SYSTEM = """
-You are a YouTube thumbnail critic.
+You are a strict YouTube thumbnail critic.
 
 Evaluate the generated thumbnail and provide:
 
@@ -32,4 +33,7 @@ Focus on:
 - readability
 - color contrast
 - clickability
+
+Be strict.
+Most thumbnails should score between 5 and 7.
 """
