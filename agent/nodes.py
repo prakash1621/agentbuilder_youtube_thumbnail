@@ -3,6 +3,7 @@
 import base64
 from pathlib import Path
 from datetime import datetime
+from .tools import web_search
 
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage
@@ -38,7 +39,12 @@ def prompt_writer_node(state: ThumbnailState) -> dict:
         temperature=0.7
     )
 
-    context = f"Topic: {state['topic']}"
+    context = f"""
+    Topic: {state['topic']}
+
+    Visual Inspiration:
+        {state['search_summary']}
+    """
 
     messages = [
         HumanMessage(
@@ -56,6 +62,36 @@ def prompt_writer_node(state: ThumbnailState) -> dict:
         "prompt": prompt
     }
 
+def saver_node(state: ThumbnailState) -> dict:
+    """Save final thumbnail."""
+
+    print("\n💾 Saver")
+
+    final_path = Path(state["image_path"]).parent / "final.png"
+
+    final_path.write_bytes(
+        Path(state["image_path"]).read_bytes()
+    )
+
+    print(f"Final image saved to: {final_path}")
+
+    return {
+        "best_image_path": str(final_path)
+    }
+
+
+def web_search_node(state: ThumbnailState) -> dict:
+    """Search web for thumbnail inspiration."""
+
+    print("\n🔍 Web Search")
+
+    search_summary = web_search(
+        state["topic"]
+    )
+
+    return {
+        "search_summary": search_summary
+    }
 
 def generator_node(state: ThumbnailState) -> dict:
     """Generate thumbnail image."""

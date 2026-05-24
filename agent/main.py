@@ -25,12 +25,17 @@ def main():
 
     # Initial state
     initial_state: ThumbnailState = {
-        "topic": args.topic,
-        "prompt": "",
-        "image_path": "",
-        "rating": 0,
-        "critique": ""
-    }
+    "topic": args.topic,
+    "search_summary": "",
+    "prompt": "",
+    "image_path": "",
+    "rating": 0,
+    "critique": "",
+    "iteration": 1,
+    "target_rating": 8,
+    "max_iterations": 3,
+    "best_image_path": ""
+}
 
     print("\n🎬 Starting YouTube Thumbnail Designer")
     print(f"Topic: {args.topic}")
