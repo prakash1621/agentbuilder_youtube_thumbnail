@@ -17,8 +17,7 @@ __pycache__/
 .env.local
 .env.*.local
 
-# Generated outputs
-outputs/
+
 
 # Editor / IDE temp files
 *.dtmp
